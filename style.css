@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --netflix-black: #141414;
+  --netflix-red: #e50914;
+  --netflix-white: #ffffff;
+  --netflix-gray: #b3b3b3;
+  --shadow: rgba(0, 0, 0, 0.75);
+}
+
+html.light-mode {
+  --netflix-black: #f5f5f5;
+  --netflix-white: #1a1a1a;
+  --netflix-gray: #4a4a4a;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  width: 92px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--netflix-black);
+  color: var(--netflix-white);
+  min-height: 100vh;
+  line-height: 1.4;
+  overflow-x: hidden;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-selection {
+  padding: 100px 40px 30px;
+  min-height: auto;
+  overflow: visible;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  will-change: background-color, border-color;
+}
+
+.navbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  gap: 12px;
+}
+
+.topbar-right {
+  gap: 10px;
+}
+
+html.light-mode .topbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-link img {
+  width: 92px;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--netflix-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--netflix-red);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle {
+  font-size: 18px;
+}
+
+.profile-selection h1 {
+  font-family: 'Bebas Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--netflix-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  will-change: color, text-shadow;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+section {
+  padding: 20px;
+  border: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.profiles {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.profile button {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+html.light-mode .profile button {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.profile button:hover,
+.profile button:focus-visible {
+  transform: scale(1.05);
+}
+
+.profile button:focus-visible {
+  outline: 2px solid var(--netflix-red);
+  outline-offset: 4px;
+}
+
+.profile img {
+  width: 140px;
+  height: 140px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  will-change: box-shadow;
+}
+
+.profile button:hover img {
+  transform: scale(1.1);
+}
+
+figcaption {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--netflix-white);
+  text-align: center;
+  transition: color 0.3s ease;
+  will-change: color;
+}
+
+.manage-profiles {
+  margin-top: 40px;
+}
+
+.manage-profiles button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--netflix-gray);
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.manage-profiles button:hover {
+  border-color: var(--netflix-white);
+  color: var(--netflix-white);
+}
+
+html.light-mode .manage-profiles button {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #4a4a4a;
+}
+
+html.light-mode .manage-profiles button:hover {
+  border-color: var(--netflix-white);
+  color: var(--netflix-white);
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 15px 20px;
+  }
+
+  .profile-selection {
+    padding: 120px 20px 40px;
+  }
+
+  .profile-selection h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .profiles {
+    gap: 15px;
+  }
+
+  .profile img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-selection h1 {
+    font-size: 2rem;
+  }
+
+  .profiles {
+    gap: 10px;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .topbar {
+    padding: 10px 15px;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+}
+
+/* Light mode additional styles */
+html.light-mode {
+  background-color: #f5f5f5;
+}
+
+html.light-mode .page-wrap {
+  background-image: radial-gradient(circle at 20% -10%, rgba(0, 0, 0, 0.03), transparent 38%),
+    linear-gradient(180deg, #f0f0f0 0%, #fafafa 35%, #ffffff 100%);
+}
+
+html.light-mode .profile-selection h1 {
+  color: #1a1a1a;
+  text-shadow: none;
+}
+
+html.light-mode .profile img {
+  box-shadow: none;
+}
+
+html.light-mode .profile button:hover,
+html.light-mode .profile button:focus-visible {
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+html.light-mode section {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+html.light-mode .icon-btn {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+}
+
+html.light-mode .icon-btn:hover {
+  background: none;
+}

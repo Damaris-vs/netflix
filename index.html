@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/netflix.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="page-wrap">
+        <header class="topbar" role="banner">
+            <div class="navbar-left">
+                <a href="index.html" class="brand-link" aria-label="Página inicial Netflix">
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                        alt="Logo Netflix">
+                </a>
+            </div>
+            <nav class="topbar-right" aria-label="Ações do usuário">
+                <button class="icon-btn" aria-label="Ajuda">?</button>
+                <button class="icon-btn" aria-label="Notificações">🔔</button>
+                <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro">🌙</button>
+            </nav>
+        </header>
+
+        <main class="profile-selection">
+            <h1>Quem está assistindo?</h1>
+            <section aria-labelledby="profiles-title">
+                <h2 id="profiles-title" class="sr-only">Seleção de perfis</h2>
+                <ul class="profiles">
+                    <!-- Perfil 1 -->
+                    <li class="profile">
+                        <button type="button" class="profile-link" data-href="catalogo/catalogo.html" data-name="Damaris" data-image="/assets/perfil-1.png" aria-label="Selecionar Damaris">
+                            <figure>
+                                <img src="/assets/perfil-1.png" alt="Avatar do perfil Damaris">
+                                <figcaption>Damaris</figcaption>
+                            </figure>
+                        </button>
+                    </li>
+                    <!-- Perfil 2-->
+                    <li class="profile">
+                        <button type="button" class="profile-link" data-href="catalogo/catalogo.html" data-name="Glórinha" data-image="/assets/perfil-2.png" aria-label="Selecionar Glórinha">
+                            <figure>
+                                <img src="/assets/perfil-2.png" alt="Avatar do perfil Glórinha">
+                                <figcaption>Glórinha</figcaption>
+                            </figure>
+                        </button>
+                    </li>
+                    <!-- Perfil 3-->
+                    <li class="profile">
+                        <button type="button" class="profile-link" data-href="catalogo/catalogo.html" data-name="Luiz" data-image="/assets/perfil-3.png" aria-label="Selecionar Luiz">
+                            <figure>
+                                <img src="/assets/perfil-3.png" alt="Avatar do perfil Luiz">
+                                <figcaption>Luiz</figcaption>
+                            </figure>
+                        </button>
+                    </li>
+                    <!-- Perfil 4-->
+                    <li class="profile">
+                        <button type="button" class="profile-link" data-href="catalogo/catalogo.html" data-name="Fabiana" data-image="/assets/perfil-4.png" aria-label="Selecionar Fabiana">
+                            <figure>
+                                <img src="/assets/perfil-4.png" alt="Avatar do perfil Fabiana">
+                                <figcaption>Fabiana</figcaption>
+                            </figure>
+                        </button>
+                    </li>
+                </ul>
+            </section>
+            <div class="manage-profiles">
+                <button type="button">Gerenciar perfis</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
